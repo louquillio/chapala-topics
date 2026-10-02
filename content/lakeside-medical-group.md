@@ -1,13 +1,14 @@
 ---
 title: Lakeside Medical Group
+author: Lou Quillio
+author_url: https://github.com/louquillio
+place: San Antonio Tlayacapan, Jalisco
 date: October 2, 2026
 updated: October 2, 2026
 ---
-# Lakeside Medical Group: a research note
+*A research note. Personal research and opinion; sources are listed at the end. Allegations are labeled as allegations, and unverified claims are marked as unverified. Current as of October 2, 2026.*
 
-**Lou Quillio** · San Antonio Tlayacapan, Jalisco · October 2, 2026
-
-*Personal research and opinion. Sources are listed at the end. Allegations are labeled as allegations, and unverified claims are marked as unverified. Current as of October 2, 2026.*
+---
 
 ## Summary
 
@@ -31,6 +32,8 @@ In 2026 that single dependency is being squeezed from both ends. On the payer si
 - "All medical care must be authorized by us for coverage within our network. No exceptions."
 - For an affected AARP-UHC member, the membership goes inert the moment the benefit disappears, because there is nothing left to bill.
 
+---
+
 ## What the company is
 
 LMG is a managed-care facilitator and billing intermediary between expats' existing US, Canadian, or international insurance and Mexican hospitals, labs, specialists, and pharmacies. Their pitch is to bill your insurer directly so you face no deductible or coinsurance, with about a 100-peso copay as the only stated patient cost. There are no premiums and no membership fees.
@@ -39,17 +42,23 @@ Their own registration page states the dependency precisely: "your benefits and 
 
 They list a claimed network across Ajijic and Chapala, Guadalajara, Puerto Vallarta and Bucerias, Mazatlán, Cabo San Lucas and San José del Cabo, Mérida, Ensenada, and San Miguel de Allende.
 
+---
+
 ## The 2027 Medicare Advantage change
 
 For the 2027 plan year, UnitedHealthcare / AARP Medicare Advantage members are reporting that worldwide emergency and urgent care coverage is removed. One member's own Annual Notice of Change shows emergency care outside the US covered in 2026 and, for 2027, states that it "is not covered by Original Medicare or the Plan," with a suggestion to buy separate travel medical insurance.
 
 This is an optional benefit each carrier can add or drop, plan by plan, each year. It is not a CMS rule, it is not industry-wide, and CMS still describes supplemental benefits as stable for 2027. But it is the largest Medicare Advantage carrier, and it removes the money the direct-billing model runs on. The uncertainty here is about how many members are affected, not about what it means for each one who is.
 
+---
+
 ## What else they do
 
 Beyond Medicare Advantage billing, the same billing service runs across other payer regimes: commercial US plans, Canadian plans, the VA Foreign Medical Program, Tricare and CHAMPVA, ACA marketplace plans, and travel insurers. That spread matters, because those lanes are outside the Medicare Advantage change.
 
 There is also a prescription drug benefits program through a partner pharmacy (Pharma Ana, which LMG describes as independently owned and managed), members-only annual wellness exams, primary care at its own facility, a patient app with telemedicine, and a mobile clinic.
+
+---
 
 ## How coverage is controlled
 
@@ -61,6 +70,8 @@ Two documents give different emergency protocols. The dedicated emergency guide 
 
 On the provider side, their "Rapid Patient Benefits Check" asks first for one thing: "Is an Emergency? Yes or No." For an emergency-only plan, that single answer decides whether the insurer ever sees a bill.
 
+---
+
 ## The hospital network
 
 Ribera Medical Center sat at Libramiento Carretera 153, Ajijic, and was LMG's only full-service acute-care hospital in the immediate Ajijic corridor, with an emergency room, ICU, surgery, imaging, labs, and ambulance.
@@ -69,9 +80,13 @@ Effective April 15, 2026, Grupo Médico Joya and Julio Carbajal took majority ow
 
 LMG's own website still lists Ribera Medical Center as its Lake Chapala hospital.
 
+---
+
 ## The web presence
 
 Their site runs Joomla 3.9.26 (manifest dated April 2021) on PHP 7.4.33, both end-of-life, while collecting insurance cards and government IDs through a membership form that promises a "HIPAA-compliant system." The site's address is listed inconsistently across its own pages (Hidalgo 148, 148A, and 244).
+
+---
 
 ## Is it a deal-breaker?
 
@@ -80,6 +95,8 @@ For the affected AARP-UHC population, yes, and by construction rather than by an
 The one partial escape is a substitute payer. Their accepted-insurer list includes travel and international medical insurers, so a member could buy a standalone travel medical policy that LMG accepts, though those policies often work by reimbursement rather than direct billing, which is not the same proposition.
 
 And it compounds. Even with a live benefit, the Lakeside member's nearest in-network acute hospital is now about an hour away.
+
+---
 
 ## Sources, method, and confidence
 
