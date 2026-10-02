@@ -10,8 +10,10 @@ at a subdomain, or at / on any static host.
 
 Page chrome, defined once here:
   - header: brand + site nav
-  - in-page breadcrumb above the title (notes only)
+  - in-page breadcrumb above the title (parent trail only)
   - byline from front matter (author / author_url / place / date)
+  - a prominent primary-source callout from front matter (primary_*)
+  - an auto-generated Contents list for note pages
   - reverse-monochrome footer with the standing disclaimer
 """
 import html as H
@@ -26,8 +28,7 @@ CONTENT = ROOT / "content"
 SITE_NAME = "Chapala Topics"
 FOOTER = (
     "Personal research and opinion by Lou Quillio. Independent, and not affiliated "
-    "with any provider or publication. Published here because a local forum does not "
-    "permit analytically critical posts about local providers."
+    "with any provider or publication."
 )
 BUILT = "October 2, 2026"
 
@@ -47,7 +48,7 @@ TEMPLATE = """<!doctype html>
 </div></header>
 <main class="wrap">
 {crumbs}<h1>{title}</h1>
-{byline}{body}
+{byline}{primary}{toc}{body}
 </main>
 <footer class="site"><div class="wrap">
 <p>{footer}</p>
@@ -70,12 +71,13 @@ def front_matter(text):
     return meta, body
 
 
-def md2html(text):
-    return markdown.markdown(
-        text,
-        extensions=["tables", "fenced_code", "sane_lists", "attr_list", "md_in_html"],
+def render(text):
+    md = markdown.Markdown(
+        extensions=["tables", "fenced_code", "sane_lists", "attr_list", "md_in_html", "toc"],
+        extension_configs={"toc": {"toc_depth": "2-3", "permalink": False}},
         output_format="html5",
     )
+    return md.convert(text), getattr(md, "toc", "")
 
 
 pages = []
@@ -95,11 +97,11 @@ def nav_html(prefix, current):
     return " · ".join(bits)
 
 
-def crumbs_html(prefix, title, slug):
+def crumbs_html(prefix, slug):
     if not slug:
         return ""
     return (f'<nav class="crumbs"><a href="{prefix}">{SITE_NAME}</a> '
-            f'<span>/</span> <span class="here">{H.escape(title)}</span></nav>\n')
+            f'<span>/</span> <a href="{prefix}#notes">Notes</a></nav>\n')
 
 
 def byline_html(meta):
@@ -113,9 +115,23 @@ def byline_html(meta):
     return f'<p class="byline">By {name}{tail}</p>\n'
 
 
+def primary_html(meta):
+    url = meta.get("primary_url")
+    if not url:
+        return ""
+    label = meta.get("primary_label", "Primary source")
+    text = meta.get("primary_text") or url
+    return (f'<aside class="primary"><span class="label">{H.escape(label)}</span>'
+            f'<a href="{H.escape(url)}">{H.escape(text)}</a></aside>\n')
+
+
 for p in pages:
     slug = p["slug"]
     prefix = "" if slug == "" else "../"
+    body_html, toc = render(p["body"])
+    if not slug:
+        toc = ""
+    toc_html = (f'<nav class="toc"><span class="label">Contents</span>{toc}</nav>\n' if toc else "")
     out_dir = ROOT if slug == "" else ROOT / slug
     out_dir.mkdir(parents=True, exist_ok=True)
     doc = TEMPLATE.format(
@@ -123,9 +139,11 @@ for p in pages:
         site=SITE_NAME,
         prefix=prefix,
         nav=nav_html(prefix, slug),
-        crumbs=crumbs_html(prefix, p["title"], slug),
+        crumbs=crumbs_html(prefix, slug),
         byline=byline_html(p["meta"]),
-        body=md2html(p["body"]),
+        primary=primary_html(p["meta"]),
+        toc=toc_html,
+        body=body_html,
         footer=FOOTER,
         built=BUILT,
     )
