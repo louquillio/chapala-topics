@@ -11,20 +11,16 @@ body{margin:0;background:var(--bg);color:var(--fg);
 
 .wrap{max-width:1000px;margin:0 auto;padding:0 26px}
 
-/* header: brand + site nav */
+/* header: the brand only */
 header.site{background:var(--card);border-bottom:1px solid var(--line);padding:16px 0}
-header.site .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:baseline;justify-content:space-between}
 .brand{font-weight:700;color:var(--fg);text-decoration:none;font-size:1.05rem}
-nav.site{font-size:.72rem}
-nav.site a{margin-right:16px;white-space:nowrap}
-nav.site a.here{font-weight:700;text-decoration:underline}
 
 main{padding:40px 26px 84px}
 
-/* breadcrumb trail, in-page, above the title (parent trail only) */
-nav.crumbs{font-size:.68rem;color:var(--muted);margin:0 0 .4em}
+/* in-page trail, above the title, delimited with >> */
+nav.crumbs{font-size:.68rem;color:var(--muted);margin:0 0 .45em}
 nav.crumbs a{color:var(--muted)}
-nav.crumbs span{color:var(--muted)}
+nav.crumbs .sep{margin:0 .34em;color:var(--rule)}
 
 h1{font-size:1.7rem;line-height:1.25;margin:0 0 .35em}
 p.byline{font-size:.7rem;color:var(--muted);margin:0 0 1.2em}
@@ -71,7 +67,7 @@ footer.site .meta{color:var(--foot-muted)}
 footer.site a{color:var(--foot-link)}
 
 @media print{
- header.site nav, nav.crumbs, nav.toc{display:none}
+ nav.crumbs, nav.toc{display:none}
  body{font-size:12pt}
  a{color:#000}
  footer.site{background:#fff;color:#000}
