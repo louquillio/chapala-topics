@@ -9,8 +9,8 @@ domain anywhere. The same folder can be dropped at quillio.mx/chapala-topics,
 at a subdomain, or at / on any static host.
 
 Page chrome, defined once here:
-  - header: brand + site nav
-  - in-page breadcrumb above the title (parent trail only)
+  - header: the brand, and nothing else (no trail up there)
+  - in-page trail above the title, delimited with >>
   - byline from front matter (author / author_url / place / date)
   - a prominent primary-source callout from front matter (primary_*)
   - an auto-generated Contents list for note pages
@@ -44,7 +44,6 @@ TEMPLATE = """<!doctype html>
 <body>
 <header class="site"><div class="wrap">
 <a class="brand" href="{prefix}">{site}</a>
-<nav class="site">{nav}</nav>
 </div></header>
 <main class="wrap">
 {crumbs}<h1>{title}</h1>
@@ -86,22 +85,13 @@ for f in sorted(CONTENT.glob("*.md")):
     slug = "" if f.stem == "index" else f.stem
     pages.append({"slug": slug, "meta": meta, "title": meta.get("title", f.stem), "body": body})
 
-notes = sorted([p for p in pages if p["slug"]], key=lambda p: p["title"])
-
-
-def nav_html(prefix, current):
-    bits = [f'<a href="{prefix}">Notes</a>']
-    for p in notes:
-        cls = ' class="here"' if p["slug"] == current else ""
-        bits.append(f'<a href="{prefix}{p["slug"]}/"{cls}>{H.escape(p["title"])}</a>')
-    return " · ".join(bits)
-
 
 def crumbs_html(prefix, slug):
     if not slug:
         return ""
-    return (f'<nav class="crumbs"><a href="{prefix}">{SITE_NAME}</a> '
-            f'<span>/</span> <a href="{prefix}#notes">Notes</a></nav>\n')
+    return (f'<nav class="crumbs"><a href="{prefix}">{SITE_NAME}</a>'
+            f'<span class="sep">&gt;&gt;</span>'
+            f'<a href="{prefix}#notes">Notes</a></nav>\n')
 
 
 def byline_html(meta):
@@ -138,7 +128,6 @@ for p in pages:
         title=H.escape(p["title"]),
         site=SITE_NAME,
         prefix=prefix,
-        nav=nav_html(prefix, slug),
         crumbs=crumbs_html(prefix, slug),
         byline=byline_html(p["meta"]),
         primary=primary_html(p["meta"]),
