@@ -5,16 +5,17 @@ author_url: https://github.com/louquillio
 place: San Antonio Tlayacapan, Jalisco
 date: October 2, 2026
 updated: October 2, 2026
+primary_label: Primary source
+primary_url: https://www.lakemedicalgroup.com/
+primary_text: Lakeside Medical Group (lakemedicalgroup.com)
 ---
-*A research note. Personal research and opinion; sources are listed at the end. Allegations are labeled as allegations, and unverified claims are marked as unverified. Current as of October 2, 2026.*
-
----
-
 ## Summary
 
-Lakeside Medical Group (LMG) is not a clinic and not an insurer. It is a third-party administrator that lets expats with US, Canadian, or international health coverage use that coverage in Mexico with no cash up front, by billing the foreign insurer directly. Free to join, roughly a 100-peso copay, no deductible or coinsurance to the member. Its entire value depends on one thing existing: a foreign policy benefit that reaches Mexico.
+[Lakeside Medical Group](https://www.lakemedicalgroup.com/) (LMG) is not a clinic and not an insurer. It is a third-party administrator that lets expats with US, Canadian, or international health coverage use that coverage in Mexico with no cash up front, by billing the foreign insurer directly. Free to join, roughly a 100-peso copay, no deductible or coinsurance to the member. Its entire value depends on one thing existing: a foreign policy benefit that reaches Mexico.
 
-In 2026 that single dependency is being squeezed from both ends. On the payer side, UnitedHealthcare's AARP Medicare Advantage plans are dropping worldwide emergency and urgent coverage for the 2027 plan year. On the provider side, the hospital network is contracting, most recently with the Ribera Medical Center in Ajijic passing to Grupo Médico Joya, which removes the only full-service acute-care hospital in the immediate Ajijic corridor.
+In 2026 that single dependency is being squeezed from both ends. On the payer side, [UnitedHealthcare's AARP Medicare Advantage plans](https://www.aarpmedicareplans.com/) are dropping worldwide emergency and urgent coverage for the 2027 plan year. On the provider side, the hospital network is contracting, most recently with the [Ribera Medical Center](https://hospitaljoya.com/cuidate/hospitales/hospital-joya-chapala/) in Ajijic passing to [Grupo Médico Joya](https://hospitaljoya.com/), which removes the only full-service acute-care hospital in the immediate Ajijic corridor.
+
+---
 
 ### The business, in brief
 
@@ -48,13 +49,13 @@ They list a claimed network across Ajijic and Chapala, Guadalajara, Puerto Valla
 
 For the 2027 plan year, UnitedHealthcare / AARP Medicare Advantage members are reporting that worldwide emergency and urgent care coverage is removed. One member's own Annual Notice of Change shows emergency care outside the US covered in 2026 and, for 2027, states that it "is not covered by Original Medicare or the Plan," with a suggestion to buy separate travel medical insurance.
 
-This is an optional benefit each carrier can add or drop, plan by plan, each year. It is not a CMS rule, it is not industry-wide, and CMS still describes supplemental benefits as stable for 2027. But it is the largest Medicare Advantage carrier, and it removes the money the direct-billing model runs on. The uncertainty here is about how many members are affected, not about what it means for each one who is.
+This is an optional benefit each carrier can add or drop, plan by plan, each year. It is not a rule from the [Centers for Medicare & Medicaid Services](https://www.cms.gov/) (CMS), it is not industry-wide, and the agency still describes supplemental benefits as stable for 2027. But it is the largest Medicare Advantage carrier, and it removes the money the direct-billing model runs on. The uncertainty here is about how many members are affected, not about what it means for each one who is.
 
 ---
 
 ## What else they do
 
-Beyond Medicare Advantage billing, the same billing service runs across other payer regimes: commercial US plans, Canadian plans, the VA Foreign Medical Program, Tricare and CHAMPVA, ACA marketplace plans, and travel insurers. That spread matters, because those lanes are outside the Medicare Advantage change.
+Beyond Medicare Advantage billing, the same billing service runs across other payer regimes: commercial US plans, Canadian plans, the [VA Foreign Medical Program](https://www.va.gov/health-care/foreign-medical-program/), [Tricare](https://www.tricare.mil/) and [CHAMPVA](https://www.va.gov/health-care/family-caregiver-benefits/champva/), ACA marketplace plans, and travel insurers. That spread matters, because those lanes are outside the Medicare Advantage change.
 
 There is also a prescription drug benefits program through a partner pharmacy (Pharma Ana, which LMG describes as independently owned and managed), members-only annual wellness exams, primary care at its own facility, a patient app with telemedicine, and a mobile clinic.
 
@@ -84,7 +85,7 @@ LMG's own website still lists Ribera Medical Center as its Lake Chapala hospital
 
 ## The web presence
 
-Their site runs Joomla 3.9.26 (manifest dated April 2021) on PHP 7.4.33, both end-of-life, while collecting insurance cards and government IDs through a membership form that promises a "HIPAA-compliant system." The site's address is listed inconsistently across its own pages (Hidalgo 148, 148A, and 244).
+Their site runs [Joomla](https://www.joomla.org/) 3.9.26, the content management system, in a release dated April 2021, on [PHP](https://www.php.net/) 7.4.33. Both are past end-of-life. The same site collects insurance cards and government IDs through a membership form. The street address is listed inconsistently across its own pages (Hidalgo 148, 148A, and 244).
 
 ---
 
@@ -100,7 +101,7 @@ And it compounds. Even with a live benefit, the Lakeside member's nearest in-net
 
 ## Sources, method, and confidence
 
-This note is drawn from LMG's own website and PDFs, local expat forums, local news, the Wayback Machine, the domain registry, and the site's own CMS manifest. Where a claim rests on community reports rather than documents, it says so.
+This note is drawn from LMG's own website and PDFs, local expat forums, local news, the [Wayback Machine](https://web.archive.org/), the domain registry, and the site's own manifest. Where a claim rests on community reports rather than documents, it says so.
 
 | Claim | Confidence |
 |---|---|
@@ -111,4 +112,4 @@ This note is drawn from LMG's own website and PDFs, local expat forums, local ne
 | Network contraction in Puerto Vallarta and Mazatlán | Moderate (community reports) |
 | Insurance-fraud allegations | Unproven; recurring community claims, no finding seen |
 | For affected members, the 2027 change is a deal-breaker | High on the logic; scale unknown |
-| Site age and end-of-life CMS | High (from the site's own manifest) |
+| Site age and end-of-life software | High (from the site's own manifest) |
