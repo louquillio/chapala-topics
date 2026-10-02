@@ -7,6 +7,12 @@ Run with the interpreter that has python-markdown:
 Output is portable: relative links only, one shared stylesheet, no absolute
 domain anywhere. The same folder can be dropped at quillio.mx/chapala-topics,
 at a subdomain, or at / on any static host.
+
+Page chrome, defined once here:
+  - header: brand + site nav
+  - in-page breadcrumb above the title (notes only)
+  - byline from front matter (author / author_url / place / date)
+  - reverse-monochrome footer with the standing disclaimer
 """
 import html as H
 import pathlib
@@ -37,10 +43,11 @@ TEMPLATE = """<!doctype html>
 <body>
 <header class="site"><div class="wrap">
 <a class="brand" href="{prefix}">{site}</a>
-<nav>{nav}</nav>
+<nav class="site">{nav}</nav>
 </div></header>
 <main class="wrap">
-{body}
+{crumbs}<h1>{title}</h1>
+{byline}{body}
 </main>
 <footer class="site"><div class="wrap">
 <p>{footer}</p>
@@ -75,10 +82,9 @@ pages = []
 for f in sorted(CONTENT.glob("*.md")):
     meta, body = front_matter(f.read_text(encoding="utf-8"))
     slug = "" if f.stem == "index" else f.stem
-    pages.append({"slug": slug, "title": meta.get("title", f.stem), "body": body})
+    pages.append({"slug": slug, "meta": meta, "title": meta.get("title", f.stem), "body": body})
 
 notes = sorted([p for p in pages if p["slug"]], key=lambda p: p["title"])
-INDEX = next((p for p in pages if p["slug"] == ""), None)
 
 
 def nav_html(prefix, current):
@@ -87,6 +93,24 @@ def nav_html(prefix, current):
         cls = ' class="here"' if p["slug"] == current else ""
         bits.append(f'<a href="{prefix}{p["slug"]}/"{cls}>{H.escape(p["title"])}</a>')
     return " · ".join(bits)
+
+
+def crumbs_html(prefix, title, slug):
+    if not slug:
+        return ""
+    return (f'<nav class="crumbs"><a href="{prefix}">{SITE_NAME}</a> '
+            f'<span>/</span> <span class="here">{H.escape(title)}</span></nav>\n')
+
+
+def byline_html(meta):
+    author = meta.get("author")
+    if not author:
+        return ""
+    url = meta.get("author_url")
+    name = f'<a href="{H.escape(url)}">{H.escape(author)}</a>' if url else H.escape(author)
+    rest = " · ".join(x for x in (meta.get("place"), meta.get("date")) if x)
+    tail = f" · {H.escape(rest)}" if rest else ""
+    return f'<p class="byline">By {name}{tail}</p>\n'
 
 
 for p in pages:
@@ -99,6 +123,8 @@ for p in pages:
         site=SITE_NAME,
         prefix=prefix,
         nav=nav_html(prefix, slug),
+        crumbs=crumbs_html(prefix, p["title"], slug),
+        byline=byline_html(p["meta"]),
         body=md2html(p["body"]),
         footer=FOOTER,
         built=BUILT,
