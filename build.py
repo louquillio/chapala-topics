@@ -53,6 +53,7 @@ TEMPLATE = """<!doctype html>
 <p>{footer}</p>
 <p class="meta">Built {built}.</p>
 </div></footer>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "086a97386f864699affce36df723b425"}}'></script>
 </body>
 </html>
 """
